@@ -1,1 +1,1 @@
-web: gunicorn Django_portfolio_app.wsgi --log-file -
+web: gunicorn omamega.wsgi --log-file -
