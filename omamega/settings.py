@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-yl^$8eaet*=uekh-&l0*=g_rckwpxqn_3$avb&s1^70_i$uq*u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'https://omamega-050ab83e7a1d.herokuapp.com/', 'omamegaestate.com', 'www.omamegaestate.com']
 
 
 # Application definition
