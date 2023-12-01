@@ -78,6 +78,12 @@
                     <li {% if request.path == '/property_listing_list/' %} class="active" {% endif %}><a href="{% url 'Listing:property_listing_list' %}">Properties</a> </li>
                     <li {% if request.path == '/blog/' %} class="active" {% endif %}><a href="{% url 'Blog:post_list' %}">Blog</a> </li>
                     <li {% if request.path == '/contact/' %} class="active" {% endif %}><a href="{% url 'core:contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li  class="active" ><a href=" {% if user.is_Landlord == True %} {% url 'core:dashboard' %} {% else %} {% url 'core:invoice' %} {% endif %}">Dashboard</a></li>
+                    <li  class="active" ><a href="{% url 'Authorization:logout' %}">Logout</a></li>
+                    {% else %}
+                    <li  class="active" ><a href="{% url 'core:account_type' %}">Proptsavvy</a></li>
+                    {% endif %}
                 </ul>
                 <!-- End Main Menu -->
             </nav>
@@ -113,6 +119,7 @@
                                             <li {% if request.path == '/contact/' %} class="active" {% endif %}><a href="{% url 'core:contact' %}">Contact</a></li>
                                         </ul>
                                         <!-- End Main Menu -->
+                                        
                                     </div>
                                 </div>
                             </div>

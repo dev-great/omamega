@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yl^$8eaet*=uekh-&l0*=g_rckwpxqn_3$avb&s1^70_i$uq*u
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'omamega-050ab83e7a1d.herokuapp.com', 'omamegaestate.com', 'www.omamegaestate.com']
+    'omamega-050ab83e7a1d.herokuapp.com', '127.0.0.1', 'omamegaestate.com', 'www.omamegaestate.com']
 
 
 # Application definition
