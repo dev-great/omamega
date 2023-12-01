@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<!-- Sign In -->
+<section class="ecom-wc ecom-wc__full ecom-bg-cover" style="background-image: url('{% static 'img/credential-bg.svg' %}');">
+    <div class="container-fluid">
+        <div class="row  d-flex justify-content-center align-items-center">
+            
+            <div class="col-lg-6 col-12">
+                <div class="ecom-wc__form mg-top-30">
+                    <div class="ecom-wc__form-inner">
+                        {% if messages %}
+                        
+                            {% for message in messages %}
+                            <div class="alert alert-danger" role="alert">
+                            {{ message }}
+                            </div>
+                                {% endfor %}
+                        
+                        {% endif %}
+                        <h3 class="ecom-wc__form-title ecom-wc__form-title__one">Login <span>Your email address will not
+                                be published. Required fields are marked *</span></h3>
+                        <!-- Sign in Form -->
+                    <form class="ecom-wc__form-main p-0" action="{% url 'Authorization:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group homec-form-input">
+                            <label class="ecom-wc__form-label mg-btm-10">Email Address*</label>
+                            <div class="form-group__input">
+                                <input class="ecom-wc__form-input" type="email" name="email" placeholder="jondoe@gmail.com"
+                                    required="required">
+                            </div>
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group homec-form-input">
+                            <label class="ecom-wc__form-label mg-btm-10">Password*</label>
+                            <div class="form-group__input">
+                                <input class="ecom-wc__form-input" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
+                                    id="password-field" type="password" name="password" maxlength="8" required="required">
+                            </div>
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group form-mg-top-30">
+                            <div class="ecom-wc__button ecom-wc__button--bottom">
+                                <button class="homec-btn homec-btn__second" type="submit"><span>Login</span></button>
+                            </div>
+                        </div>
+                        <!-- Form Group -->
+                        <div class="form-group mg-top-20">
+                            <div class="ecom-wc__bottom">
+                                <p class="ecom-wc__text">Forgotten your password ? <a href=""> Request Setup</a></p>
+                            </div>
+                        </div>
+                    </form>
+                        <!-- End Sign in Form -->
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+{% endblock %}

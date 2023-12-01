@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="breadcrumbs__content" style="background-image: url('{% static 'img/bread-overlay.jpg' %}');">
+    <!-- <div class="homec-overlay"></div> -->
+    <div class="container">
+        <div class="row">
+            <!-- Breadcrumb-Content -->
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h2 class="breadcrumb__title m-0">Latest Properties</h2>
+                    <ul class="breadcrumb__menu list-none">
+                        <li><a href="{% url 'core:index' %}">Home</a></li>
+                        <li class="active"><a href="#">Latest Properties</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End breadcrumbs -->
+
+<!-- Property -->
+<section class="homec-propertys pd-top-80 pd-btm-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- Proeprty Bar -->
+                <div class="homec-property-bar">
+                    <div class="homec-property-bar__single">
+                        <form class="homec-form__form homec-form__form--bar">
+                            <input type="email" name="Email" placeholder="Search Properties..." required="">
+                            <button type="submit" class="homec-btn"><span>Search Now</span></button>
+                        </form>
+                        <!-- Show Results -->
+                        
+                        <!-- End Show Results -->
+                    </div>
+                </div>
+                <!-- End Proeprty Bar -->
+            </div>
+        </div>
+        <div class="row  justify-content-center align-items-center">
+            <!--  <div class="col-lg-4 col-12 mg-top-30">
+                <!-- <div class="property-sidebar">
+                   
+                    <!-- Single Sidebar -->
+                    <!-- <div class="property-sidebar__single mg-top-20">
+                        <div class="property-sidebar__filters">
+                            <h4 class="property-sidebar__title">City</h4>
+                            <div class="form-group">
+                                <select class="property-sidebar__group homec-border">
+                                    <option data-display="Abuja">Location</option>
+                                    <option value="2">Federal Capital Territory</option>
+                                    <option value="2">Abia</option>
+                                    <option value="3">Adamawa</option>
+                                    <option value="4">Akwa Ibom</option>
+                                    <option value="5">Anambra</option>
+                                    <option value="6">Bauchi</option>
+                                    <option value="7">Bayelsa</option>
+                                    <option value="8">Benue</option>
+                                    <option value="9">Borno</option>
+                                    <option value="10">Cross River</option>
+                                    <option value="11">Delta</option>
+                                    <option value="12">Ebonyi</option>
+                                    <option value="13">Edo</option>
+                                    <option value="14">Ekiti</option>
+                                    <option value="15">Enugu</option>
+                                    <option value="16">Gombe</option>
+                                    <option value="17">Imo</option>
+                                    <option value="18">Jigawa</option>
+                                    <option value="19">Kaduna</option>
+                                    <option value="20">Kano</option>
+                                    <option value="21">Katsina</option>
+                                    <option value="22">Kebbi</option>
+                                    <option value="23">Kogi</option>
+                                    <option value="24">Kwara</option>
+                                    <option value="25">Lagos</option>
+                                    <option value="26">Nasarawa</option>
+                                    <option value="27">Niger</option>
+                                    <option value="28">Ogun</option>
+                                    <option value="29">Ondo</option>
+                                    <option value="30">Osun</option>
+                                    <option value="31">Oyo</option>
+                                    <option value="32">Plateau</option>
+                                    <option value="33">Rivers</option>
+                                    <option value="34">Sokoto</option>
+                                    <option value="35">Taraba</option>
+                                    <option value="36">Yobe</option>
+                                    <option value="37">Zamfara</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Sidebar -->
+                    <!-- Single Sidebar -->
+                <!--   <div class="property-sidebar__single mg-top-20">
+                        <div class="property-sidebar__filters">
+                            <h4 class="property-sidebar__title">Property Category</h4>
+                            <div class="form-group">
+                                <select class="property-sidebar__group homec-border">
+                                    <option data-display="Apartment">Apartment</option>
+                                    <option value="1"> Apartment</option>
+                                    <option value="2"> Lands</option>
+                                    <option value="2"> House</option>
+                                    <option value="2"> Commercial</option>
+                                    <option value="2"> Bungalow</option>
+                                    <option value="2"> Duplex</option>
+                                    <option value="2"> Mansion</option>
+                                    <option value="2"> Terrace</option>
+                                    <option value="2"> Penthouse</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Sidebar -->
+                    <!-- Single Sidebar -->
+                <!--   <div class="property-sidebar__single mg-top-20">
+                        <div class="property-sidebar__checkboxd">
+                            <h4 class="property-sidebar__title m-0">Number Of Rooms</h4>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room1" name="room1" value="room">
+                                        <label class="homec-form-label" for="room1">Room 1</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room2" name="room2" value="room">
+                                        <label class="homec-form-label" for="room2">Room 2</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room3" name="room3" value="room">
+                                        <label class="homec-form-label" for="room3">Room 3</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room4" name="room4" value="room">
+                                        <label class="homec-form-label" for="room4">Room 4</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room5" name="room5" value="room">
+                                        <label class="homec-form-label" for="room5">Room 5</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="room6" name="room6" value="room">
+                                        <label class="homec-form-label" for="room6">Room 6</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Single Sidebar -->
+                    <!-- Single Sidebar -->
+                <!--   <div class="property-sidebar__single mg-top-20">
+                        <div class="property-sidebar__checkboxd">
+                            <h4 class="property-sidebar__title m-0">Bathrooms</h4>
+                            <div class="row">
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom1" name="broom1" value="room">
+                                        <label class="homec-form-label" for="broom1">Room 1</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom2" name="broom2" value="room">
+                                        <label class="homec-form-label" for="broom2">Room 2</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom3" name="broom3" value="room">
+                                        <label class="homec-form-label" for="broom3">Room 3</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom4" name="broom4" value="room">
+                                        <label class="homec-form-label" for="broom4">Room 4</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom5" name="broom5" value="room">
+                                        <label class="homec-form-label" for="broom5">Room 5</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-12">
+                                    <div class="form-group homec-form-checkbox mg-top-15">
+                                        <input type="checkbox" id="broom6" name="broom6" value="room">
+                                        <label class="homec-form-label" for="broom6">Room 6</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="homec-psingle__button mg-top-30">
+                        <a href="#" class="homec-btn homec-btn__thrid"><span>Apply Filter</span></a>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-12 col-12 ">
+                <div class="tab-content " id="nav-tabContent">
+                    <!-- Grid Tab -->
+                    <div class="tab-pane fade show active " id="homec-grid" role="tabpanel">
+                        <div class="row ">
+                            {% for listing in listings %}
+                            <div class="col-md-4 col-12 mg-top-30">
+                                <!-- Single property-->
+                                <div class="homec-property">
+                                    <!-- Property Head-->
+                                    <div class="homec-property__head d-flex justify-content-center align-items-center">
+                                        <img src="{{ listing.property.images.first.image.url }}" alt="{{ listing.property.name }}" style="height: 300px; width: auto; display: inline-block;" >
+                                   
+                                    </div>
+                                    <!-- Property Body-->
+                                    <div class="homec-property__body">
+                                        <div class="homec-property__topbar">
+                                            {% if listing.rental_price %}
+                                            <div class="homec-property__price">₦{{ listing.rental_price|intcomma }}<span>/year</span></div>
+                                            <span class="homec-property__salebadge">For Rent</span>
+                                            {% endif %}
+                                            {% if listing.selling_price %}
+                                            <div class="homec-property__price">₦{{ listing.selling_price|intcomma }}</div>
+                                            <span class="homec-property__salebadge" style="background-color:chartreuse;"> For Sale</span>
+                                            {% endif %}
+                                    
+                                        </div>
+                                        <h3 class="homec-property__title"><a href="{% url 'Listing:property_listing_detail' pk=listing.pk %}">{{ listing.property.name }}</a>
+                                        </h3>
+                                        <div class="homec-property__text">
+                                            <img src="{% static 'img/location-icon2.svg' %}" alt="#">
+                                            <p>{{ listing.property.address }}</p>
+                                        </div>
+                                        <!-- Property List-->
+                                        <ul class="homec-property__list homec-border-top list-none">
+                                            <li><img src="{% static 'img/room-icon2.svg' %}" alt="#">{{ listing.property.num_bedrooms }} Room</li>
+                                            <li><img src="{% static 'img/bath-icon2.svg' %}" alt="#">{{ listing.property.num_bathrooms }} Bathroom</li>
+                                            <li><img src="{% static 'img/size-icon2.svg' %}" alt="#">{{ listing.property.square_feet }} m2</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- End Single property-->
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="row mg-top-40">
+                            <div class="homec-pagination">
+                                <ul class="homec-pagination__list list-none">
+                                    {% if listings.has_previous %}
+                                    <li class="homec-pagination__button"><a href="?page={{ listings.previous_page_number }}">Prev</a></li>
+                                    {% endif %}
+                        
+                                    {% for num in listings.paginator.page_range %}
+                                    {% if listings.number == num %}
+                                    <li class="active"><a href="#">{{ num }}</a></li>
+                                    {% else %}
+                                    <li><a href="?page={{ num }}">{{ num }}</a></li>
+                                    {% endif %}
+                                    {% endfor %}
+                        
+                                    {% if listings.has_next %}
+                                    <li class="homec-pagination__button"><a href="?page={{ listings.next_page_number }}">Next</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Grid Tab -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Property -->
+{% endblock %}

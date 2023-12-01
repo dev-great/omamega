@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Breadcrumbs -->
+<section class="breadcrumbs__content" style="background-image: url('{% static 'img/bread-overlay.jpg' %}');">
+    <!-- <div class="homec-overlay"></div> -->
+    <div class="container">
+        <div class="row">
+            <!-- Breadcrumb-Content -->
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <ul class="breadcrumb__menu list-none">
+                        <li><a href="{% url 'core:index' %}">Home</a></li>
+                        <li class="active"><a href="#">Latest Properties</a></li>
+                    </ul>
+                    <h2 class="breadcrumb__title m-0">Latest Properties</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End breadcrumbs -->
+
+<!-- Property Single Slider -->
+<section class="pd-top-80 pd-btm-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="homec-property-slides">
+                    <div class="homec-property-main">
+                       
+                        <div class="flexslider" id="f1">
+                            <ul class="slides">
+                                {% for data in listing.property.images.all %}
+                                <li>
+                                    <div class="homec-image-gallery d-flex justify-content-center align-items-center">
+                                        <!-- Amount Card -->
+                                        <div class="homec-amount-card homec-amount-card__sticky">
+                                            <h4 class="homec-amount-card__amount">₦{{ listing.rental_price|intcomma}}<span>/year</span></h4>
+                                        </div>
+                                        <!-- End Amount Card -->
+                                        <div class="homec-overlay"></div>
+                                      
+                                        <img src="{{ data.image.url }}" alt="#" style="height: auto; width: auto; display: inline-block;">
+                                      
+                                        <div class="homec-image-gallery__bottom">
+                                            <div class="homec-image-gallery__content">
+                                                <h3 class="homec-image-gallery__title">{{ listing.property.name }}</h3>
+                                                <p class="homec-image-gallery__text">
+                                                    <img src="{% static 'img/location-icon2.svg' %}" alt="#">
+                                                    {{ listing.property.address }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        
+                        <div class="homec-property-thumbs mg-top-10">
+                            <div class="flexslider " id="f2">
+                                <ul class="slides">
+                                {% for data in listing.property.images.all %}
+                                    <li>
+                                        <div class="single-thumbs">
+                                            <img src="{{ data.image.url }}" alt="thumbs">
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Property Single Slider -->
+
+<!-- Proterty Details -->
+<section class="pd-top-0 homec-bg-third-color pd-btm-80 homec-bg-cover"
+    style="background-image: url('img/property-single-bg.svg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 ol-12">
+                <div class="list-group homec-list-tabs homec-list-tabs--v2" id="list-tab" role="tablist">
+                    <a class="list-group-item active" data-bs-toggle="list" href="#homec-pd-tab1" role="tab">Property
+                        Details</a>
+                    <a class="list-group-item" data-bs-toggle="list" href="#homec-pd-tab4" role="tab">Locations </a>
+                </div>
+
+                <div class="homec-pdetails-tab">
+                    <div class="tab-content" id="nav-tabContent">
+                        <!--  Property Details -->
+                        <div class="tab-pane fade show active" id="homec-pd-tab1" role="tabpanel">
+                            <div class="homec-pdetails-tab__inner">
+                                <p>{{ listing.description }}</p>
+                                <p>{{ listing.property.description }}</p>
+                                <!-- Homec Features -->
+                                <div class="homec-ptdetails-features mg-top-30">
+                                    <h4 class="homec-ptdetails-features__title">Additional Details</h4>
+                                    <ul class="homec-ptdetails-features__list">
+                                        <li><b>Year Built:</b> <span>{{ listing.property.year_built }}</span></li>
+                                        <li><b>Bedroom(s):</b> <span>{{ listing.property.num_bedrooms }}</span></li>
+                                        <li><b>Bathroom(s):</b> <span>{{ listing.property.num_bathrooms }}</span></li>
+                                        <li><b>Parking:</b> <span>{{ listing.property.parking }}</span></li>
+                                        <li><b>Square Feet:</b> <span>{{ listing.property.square_feet }}</span></li>
+                                    </ul>
+                                </div>
+                                <!-- End Homec Features -->
+                               
+                            </div>
+                        </div>
+                       
+                        <!--  Property Map -->
+                        <div class="tab-pane fade" id="homec-pd-tab4" role="tabpanel">
+                            <div class="homec-pdetails-tab__inner m-0">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-6 col-12">
+                                        <div class="homec-location-card mg-top-20">
+                                            <div class="homec-location-card__icon">
+                                                <svg width="31" height="35" viewBox="0 0 31 35" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M21.1 22.9899C24.8026 17.1798 24.3372 17.9046 24.4439 17.7531C25.7919 15.8518 26.5044 13.6139 26.5044 11.2814C26.5044 5.09565 21.4848 0 15.291 0C9.11739 0 4.0776 5.08559 4.0776 11.2814C4.0776 13.6124 4.80505 15.9088 6.19728 17.8358L9.48193 22.9899C5.97009 23.5296 0 25.1379 0 28.6791C0 29.9701 0.842569 31.8097 4.85656 33.2433C7.65937 34.2443 11.365 34.7956 15.291 34.7956C22.6324 34.7956 30.582 32.7247 30.582 28.6791C30.582 25.1373 24.6189 23.5307 21.1 22.9899ZM7.90029 16.7144C7.88908 16.6969 7.87739 16.6798 7.86515 16.6629C6.70664 15.0691 6.11641 13.1802 6.11641 11.2814C6.11641 6.18314 10.2216 2.0388 15.291 2.0388C20.3499 2.0388 24.4656 6.18498 24.4656 11.2814C24.4656 13.1833 23.8865 15.0081 22.7907 16.5599C22.6925 16.6894 23.2048 15.8935 15.291 28.3114L7.90029 16.7144ZM15.291 32.7568C7.27213 32.7568 2.0388 30.3997 2.0388 28.6791C2.0388 27.5227 4.72785 25.6213 10.6866 24.8801L14.4313 30.7561C14.6185 31.0499 14.9427 31.2277 15.2909 31.2277C15.6392 31.2277 15.9635 31.0498 16.1506 30.7561L19.8952 24.8801C25.8541 25.6213 28.5432 27.5227 28.5432 28.6791C28.5432 30.3851 23.357 32.7568 15.291 32.7568Z" />
+                                                    <path
+                                                        d="M15.2923 6.18457C12.4818 6.18457 10.1953 8.47109 10.1953 11.2816C10.1953 14.0921 12.4818 16.3786 15.2923 16.3786C18.1028 16.3786 20.3893 14.0921 20.3893 11.2816C20.3893 8.47109 18.1028 6.18457 15.2923 6.18457ZM15.2923 14.3398C13.606 14.3398 12.2341 12.9679 12.2341 11.2816C12.2341 9.59528 13.606 8.22337 15.2923 8.22337C16.9786 8.22337 18.3505 9.59528 18.3505 11.2816C18.3505 12.9679 16.9786 14.3398 15.2923 14.3398Z" />
+                                                </svg>
+                                            </div>
+                                            <h4 class="homec-location-card__title">Address</h4>
+                                            <p class="homec-location-card__desc">{{ listing.property.address }}</p>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="homec-gmap-canvas mg-top-30">
+                                    <iframe id="homec-gmap-canvas" class="homec-gmap-iframe"
+                                        src="https://maps.google.com/maps?q=&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <!--  End Property Map -->
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <!-- Property Agent Card -->
+                <div class="homec-property-ag homec-property-ag--side homec-bg-cover"
+                    style="background-image: url('img/property-ag-bg.svg');">
+                    <h3 class="homec-property-ag__title">Contact Property Agent</h3>
+                    <form action="#" class="homec-property-ag__form">
+                        <div class="form-group">
+                            <input type="text" name="full_name" placeholder="Enter your fullname">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" placeholder="Description" required="required"></textarea>
+                        </div>
+                        <button type="submit" class="homec-btn homec-btn__second homec-property-ag__button"><span>Send
+                                Message Now</span></button>
+                    </form>
+                </div>
+                <!-- End Property Agent Card -->
+            </div>
+        </div>
+    </div>
+</section>
+      
+<!-- End Proterty Details -->
+{% endblock %}

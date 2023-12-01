@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- About Area -->
+<section class="homec-error pd-top-90 pd-btm-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="600">
+                <!-- Homec Add Property Card -->
+                <div class="homec-add-property homec-bg-third-color homec-border">
+                    <!-- Homec Property Image -->
+                    <div class="homec-add-property__img">
+                        <img src="{% static 'img/userplaceholder.png' %}" alt="#">
+                    </div>
+                    <!-- Homec Property Content -->
+                    <div class="homec-add-property__content">
+                        <h3 class="homec-add-property__title">Tenant Dashboard</h3>
+                        <p class="homec-add-property__text">Get into your proptsavvy Dashboard as a Tenant.</p>
+                        <div class="homec-add-property__button">
+                            <a href="{% url 'Authorization:login' %}" class="homec-btn"><span>Create For Rent</span></a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-lg-6 col-md-6 col-12 mg-top-30" data-aos="fade-up" data-aos-delay="800">
+               
+                <div class="homec-add-property homec-bg-third-color homec-border">
+                   
+                    <div class="homec-add-property__img homec-add-property__img--sale">
+                        <img src="{% static 'img/userplaceholder.png' %}" alt="#">
+                    </div>
+                    
+                    <div class="homec-add-property__content">
+                        <h3 class="homec-add-property__title">Landlord Dashboard</h3>
+                        <p class="homec-add-property__text">Get into your proptsavvy Dashboard as a Landlord.</p>
+                        <div class="homec-add-property__button">
+                            <a href="{% url 'Authorization:login' %}" class="homec-btn homec-btn__second"><span>Create For
+                                    Login</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Area -->
+
+{% endblock %}
