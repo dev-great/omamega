@@ -30,13 +30,7 @@ packaging==21.0
 Pillow==8.2.0
 proto-plus==1.19.0
 protobuf==3.17.3
-psycopg2==2.9.1
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
-pycparser==2.20
-pycryptodome==3.10.1
-pyparsing==2.4.70
-Pyrebase4==4.5.
+psycopg2==2.9.
 python-dateutil==1.5
 python-jwt==2.0.1
 pytz==2021.1
@@ -47,6 +41,5 @@ six==1.16.0
 sqlparse==0.4.1
 uritemplate==3.0.1
 urllib3==1.26.6
-Werkzeug==2.0.1
 whitenoise==5.2.0
 wrapt==1.12.1
