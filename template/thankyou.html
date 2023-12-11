@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Error Page -->
+<section class="homec-error section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="homec-error-inner">
+                    <!-- Eror Content Image -->
+                    <div class="homec-error-inner__img">
+                        <img src="https://cdn-icons-png.flaticon.com/512/7518/7518748.png" alt="#", height="150px" width="150px">
+                    </div>
+                    <h1 class="homec-error-inner__title">Successfully placed.</h1>
+                    <div class="homec-error-inner__button">
+                        <a href="{% url 'core:index' %}" class="homec-btn"><span>Back to Home Page</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Error Page -->
+{% endblock %}

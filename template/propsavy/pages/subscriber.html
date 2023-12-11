@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Homec Dashboard -->
+<section class="homec-dashboard pd-top-100 pd-btm-100 homec-bg-third-color  mg-top-30">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="homec-dashboard__middle">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-8 col-12 mg-top-30">
+                            <div class="homec-dashboard__inner homec-border">
+                                <h3 class="homec-dashboard__heading">Subscriber Dashboard</h3>
+                                <div class="homec-invoices">
+                                    <table class="homec-invoice-table">
+                                        <thead class="homec-invoice-table__head">
+                                            <tr>
+                                                <th class="homec-invoice-table__column1">Name</th>
+                                                <th class="homec-invoice-table__column2">Location</th>
+                                                <th class="homec-invoice-table__column3">Property</th>
+                                                <th class="homec-invoice-table__column4">Amount</th>
+                                                <th class="homec-invoice-table__column5">Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="homec-invoice-table__body">
+                                            {% for subscriber in subscribers %}
+                                            <tr>
+                                                <td class="homec-invoice-table__column1">
+                                                    <p class="homec-invoice-table__text">{{subscriber.user.first_name}} {{subscriber.user.last_name}}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column2">
+                                                    <p class="homec-invoice-table__text">{{subscriber.plot_location }}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column3">
+                                                    <p class="homec-invoice-table__text">₦{{subscriber.price|intcomma }}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column4">
+                                                    <p class="homec-invoice-table__text">₦{{subscriber.amount_paid|intcomma }}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column5">
+                                                    <p class="homec-invoice-table__text">₦{{subscriber.balance|intcomma  }}</p>
+                                                </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

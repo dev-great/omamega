@@ -79,3 +79,21 @@ class Property(models.Model):
 
     class Meta:
         ordering = ['-updated_on']
+
+
+class Subscriber(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=100, decimal_places=2)
+    amount_paid = models.DecimalField(max_digits=100, decimal_places=2)
+    balance = models.DecimalField(max_digits=100, decimal_places=2)
+    plot_location = models.CharField(max_length=255)
+    contact_information = models.CharField(max_length=255)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.user.email)
+
+    class Meta:
+        ordering = ['-updated_on']

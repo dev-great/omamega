@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Property.models import Document, Property, PropertyImage, PropertyManager
+from Property.models import Document, Property, PropertyImage, PropertyManager, Subscriber
 
 # Register your models here.
 
@@ -23,6 +23,7 @@ class PropertyManagerAdmin(admin.ModelAdmin):
 admin.site.register(PropertyManager, PropertyManagerAdmin)
 
 admin.site.register(PropertyImage)
+admin.site.register(Subscriber)
 
 
 class PropertyAdmin(admin.ModelAdmin):

@@ -29,8 +29,6 @@ class Tenant(models.Model):
     contact_information = models.CharField(max_length=255)
     lease_agreement = models.OneToOneField(
         LeaseAgreement, on_delete=models.CASCADE)
-    payment_history = models.ForeignKey(
-        'PaymentHistory', on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
@@ -39,17 +37,6 @@ class Tenant(models.Model):
 
     class Meta:
         ordering = ['-updated_on']
-
-
-class PaymentHistory(models.Model):
-    payment_date = models.DateField()
-    amount_paid = models.DecimalField(max_digits=10, decimal_places=2)
-
-    def __str__(self):
-        return str(self.payment_date)
-
-    class Meta:
-        ordering = ['-payment_date']
 
 
 class Payment(models.Model):

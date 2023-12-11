@@ -79,7 +79,7 @@
                     <li {% if request.path == '/blog/' %} class="active" {% endif %}><a href="{% url 'Blog:post_list' %}">Blog</a> </li>
                     <li {% if request.path == '/contact/' %} class="active" {% endif %}><a href="{% url 'core:contact' %}">Contact</a></li>
                     {% if user.is_authenticated %}
-                    <li  class="active" ><a href=" {% if user.is_Landlord == True %} {% url 'core:dashboard' %} {% else %} {% url 'core:invoice' %} {% endif %}">Dashboard</a></li>
+                    <li  class="active" ><a href="{% if user.is_Landlord == True %} {% url 'core:dashboard' %} {% elif user.is_Subscriber == True %} {% url 'core:subscriber' %} {% else %} {% url 'core:invoice' %}  {% endif %}">Dashboard</a></li>
                     <li  class="active" ><a href="{% url 'Authorization:logout' %}">Logout</a></li>
                     {% else %}
                     <li  class="active" ><a href="{% url 'core:account_type' %}">Proptsavvy</a></li>
@@ -130,7 +130,7 @@
                         </button>
                         <div class="homec-header__button">
                             {% if user.is_authenticated %}
-                            <a href=" {% if user.is_Landlord == True %} {% url 'core:dashboard' %} {% else %} {% url 'core:invoice' %} {% endif %}" class="homec-header__icon">
+                            <a href="{% if user.is_Landlord == True %} {% url 'core:dashboard' %} {% elif user.is_Subscriber == True %} {% url 'core:subscriber' %} {% else %} {% url 'core:invoice' %}  {% endif %}" class="homec-header__icon">
                                 <svg width="28" height="32" viewBox="0 0 28 32" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -294,8 +294,10 @@
                                         <h3 class="widget-title">Contact Us</h3>
                                         <div class="f-contact__form-top">
                                             <ul class="f-contact-list list-none">
-                                                <li><img src="{% static 'img/footer-phone.svg' %}" alt="#"><a
-                                                        href="tel:+2349167150000">+234 916 715 0000</a></li>
+                                                <li><img src="{% static 'img/footer-phone.svg' %}" alt="#"><a href="tel:+2349167150000">+234 916 715 0000</a></li>
+                                                <li><img src="{% static 'img/footer-phone.svg' %}" alt="#"><a href="tel:+2348055010040">+234 805 501 0040</a></li>
+                                                 <li><img src="{% static 'img/footer-phone.svg' %}" alt="#"><a href="tel:+2349167160000">+234 916 716 0000</a></li>
+                                                
                                                 <li><img src="{% static 'img/footer-message.png' %}" alt="#"><a
                                                         href="mailto:infoyour@gmail.com">omamega@gmail.com</a></li>
                                                 <li><img src="{% static 'img/footer-location.png' %}" alt="#">
