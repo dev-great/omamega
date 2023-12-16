@@ -24,7 +24,7 @@ urlpatterns = [
     path('blog/', include('Blog.urls')),
     path('property/', include('Listing.urls')),
     path('authorization/', include('Authorization.urls')),
-    path('listings/', include('Listing.urls')),
+    path('listings/', include('Listing.urls', namespace='Listing')),
 ]
 
 if settings.DEBUG:
