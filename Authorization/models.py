@@ -13,7 +13,7 @@ class CustomUserManager(BaseUserManager):
             raise ValueError(_('The Email must be set'))
         email = self.normalize_email(email)
         user = self.model(email=email, **extra_fields)
-        user.make_password(password)
+        user.set_password(password)
         user.save()
         return user
 
@@ -52,7 +52,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        self.set_password(self.password)
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     self.set_password(self.password)
+    #     super().save(*args, **kwargs)

@@ -18,10 +18,12 @@
                                         <thead class="homec-invoice-table__head">
                                             <tr>
                                                 <th class="homec-invoice-table__column1">Name</th>
-                                                <th class="homec-invoice-table__column2">Location</th>
-                                                <th class="homec-invoice-table__column3">Property</th>
-                                                <th class="homec-invoice-table__column4">Amount</th>
-                                                <th class="homec-invoice-table__column5">Balance</th>
+                                                <th class="homec-invoice-table__column2">Decription</th>
+                                                <th class="homec-invoice-table__column3">Plot no.</th>
+                                                <th class="homec-invoice-table__column4">Plot Size</th>
+                                                <th class="homec-invoice-table__column5">Price</th>
+                                                <th class="homec-invoice-table__column6">Amount</th>
+                                                <th class="homec-invoice-table__column7">Balance</th>
                                             </tr>
                                         </thead>
                                         <tbody class="homec-invoice-table__body">
@@ -31,15 +33,21 @@
                                                     <p class="homec-invoice-table__text">{{subscriber.user.first_name}} {{subscriber.user.last_name}}</p>
                                                 </td>
                                                 <td class="homec-invoice-table__column2">
-                                                    <p class="homec-invoice-table__text">{{subscriber.plot_location }}</p>
+                                                    <p class="homec-invoice-table__text">{{subscriber.description }}</p>
                                                 </td>
                                                 <td class="homec-invoice-table__column3">
-                                                    <p class="homec-invoice-table__text">₦{{subscriber.price|intcomma }}</p>
+                                                    <p class="homec-invoice-table__text">{{subscriber.plot_no }}</p>
                                                 </td>
                                                 <td class="homec-invoice-table__column4">
-                                                    <p class="homec-invoice-table__text">₦{{subscriber.amount_paid|intcomma }}</p>
+                                                    <p class="homec-invoice-table__text">{{subscriber.plot_size }}</p>
                                                 </td>
                                                 <td class="homec-invoice-table__column5">
+                                                    <p class="homec-invoice-table__text">₦{{subscriber.price|intcomma }}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column6">
+                                                    <p class="homec-invoice-table__text">₦{{subscriber.amount_paid|intcomma }}</p>
+                                                </td>
+                                                <td class="homec-invoice-table__column7">
                                                     <p class="homec-invoice-table__text">₦{{subscriber.balance|intcomma  }}</p>
                                                 </td>
                                                 

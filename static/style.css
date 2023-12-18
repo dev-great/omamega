@@ -87,7 +87,7 @@ Version:	1.0
 }
 .homec-header__inside {
 	background: #fff;
-	padding: 20px;
+	padding: 15px;
 	border-radius: 4px;
 	display: flex;
 	justify-content: space-between;
@@ -102,8 +102,8 @@ Version:	1.0
 	float: left;
 }
 .homec-header__logo img {
-	max-width: 150px;
-	max-height: 46px;
+	max-width: 250px;
+	max-height: 60px;
 }
 .homec-header__menu {
 	display: flex;
@@ -6516,6 +6516,8 @@ div.ck-editor.ck-rounded-corners {
 .homec-invoice-table__body tr td p {
   color: #111111;
   font-weight: 400;
+  width: 7rem;
+  padding: 10px 0;
 }
 .homec-invoice-table--btn {
 	background: #7B0000;
@@ -6525,8 +6527,8 @@ div.ck-editor.ck-rounded-corners {
 	padding: 9px 15px;
 	border-radius: 5px;
 }
-.homec-invoice-table__column5 {
-	display: flex;
+.homec-invoice-table__column7 {
+	/* display: flex; */
 	justify-content: end;
 }
 .homec-invoice-table__body tr {
