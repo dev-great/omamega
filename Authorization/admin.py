@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from .forms import *
 from .models import *
 
 
 class CustomUserAdmin(admin.ModelAdmin):
+    form = UserAdminChangeForm
+    add_form = UserAdminCreationForm
+
     fieldsets = (
         (None, {'fields': ('email', 'password',)}),
         (_('Personal info'), {'fields': (
