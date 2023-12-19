@@ -3,6 +3,7 @@ from django.db import models
 
 from Property.choices import DOCUMENT_TYPE_CHOICES, PROPERTY_TYPE_CHOICES, STATES_CHOICES
 from Tenant.models import Tenant
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -10,7 +11,7 @@ from Tenant.models import Tenant
 class Document(models.Model):
     document_type = models.CharField(
         max_length=30, choices=DOCUMENT_TYPE_CHOICES)
-    file = models.FileField(upload_to='documents/')
+    file = CloudinaryField('image')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
@@ -37,7 +38,7 @@ class PropertyManager(models.Model):
 
 
 class PropertyImage(models.Model):
-    image = models.ImageField(upload_to='property_images/')
+    image = CloudinaryField('image')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
