@@ -12,7 +12,7 @@ class CustomUserManager(BaseUserManager):
         if not email:
             raise ValueError(_('The Email must be set'))
         email = self.normalize_email(email)
-        user = self.model(email=email, **extra_fields)
+        user = CustomUser.objects.create(email=email,  **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -47,12 +47,16 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
+    EMAIL_FIELD = 'email'
+    PASSWORD_FIELD = 'password'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def __str__(self):
         return self.email
 
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-    #     self.set_password(self.password)
-    #     super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        # Check if the password is already hashed
+        if not self.password.startswith(('pbkdf2_sha256$', 'bcrypt$', 'argon2$')):
+            self.set_password(self.password)
+
+        super().save(*args, **kwargs)

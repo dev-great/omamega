@@ -5,8 +5,8 @@ from .models import *
 
 
 class CustomUserAdmin(admin.ModelAdmin):
-    form = UserAdminChangeForm
-    add_form = UserAdminCreationForm
+    # add_form = UserAdminCreationForm
+    # form = UserAdminChangeForm
 
     fieldsets = (
         (None, {'fields': ('email', 'password',)}),
@@ -27,6 +27,11 @@ class CustomUserAdmin(admin.ModelAdmin):
     search_fields = ('email', 'first_name', 'last_name', 'phone_number',
                      'is_Landlord', 'is_Subscriber', 'address',)
     ordering = ('email',)
+
+    # def get_form(self, request, obj=None, **kwargs):
+    #     if obj is None:
+    #         return self.add_form
+    #     return super().get_form(request, obj, **kwargs)
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
