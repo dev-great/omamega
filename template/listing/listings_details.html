@@ -38,7 +38,12 @@
                                     <div class="homec-image-gallery d-flex justify-content-center align-items-center">
                                         <!-- Amount Card -->
                                         <div class="homec-amount-card homec-amount-card__sticky">
-                                            <h4 class="homec-amount-card__amount">₦{{ listing.rental_price|intcomma}}<span>/year</span></h4>
+                                            {% if listing.rental_price %}
+                                                <h4 class="homec-amount-card__amount">₦{{ listing.rental_price|intcomma}}<span>/year</span></h4>
+                                            {% endif %}
+                                            {% if listing.selling_price %}
+                                                <h4 class="homec-amount-card__amount">₦{{ listing.selling_price|intcomma}}</h4>
+                                            {% endif %}
                                         </div>
                                         <!-- End Amount Card -->
                                         <div class="homec-overlay"></div>

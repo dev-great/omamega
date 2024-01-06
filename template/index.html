@@ -31,7 +31,7 @@
                                 
                                     <div class="swiper-slide">
                                         <!-- Single property-->
-                                        <a href="property-single.html" class="homec-property homec-property__card">
+                                        <a href="#" class="homec-property homec-property__card">
                                             <!-- Property Head-->
                                             <div class="homec-property__head">
                                                 <div class="homec-overlay"></div>
@@ -111,15 +111,14 @@
                     <div class="homec-property__body">
                         <div class="homec-property__topbar">
                             {% if listing.rental_price %}
-                            <div class="homec-property__price">₦{{ listing.rental_price|intcomma }}<span>/year</span>
-                            </div>
-                            <span class="homec-property__salebadge">To Rent</span>
+                            <div class="homec-property__price">₦{{ listing.rental_price|intcomma }}<span>/year</span></div>
+                            <span class="homec-property__salebadge">For Rent</span>
                             {% endif %}
-                            {% if listing.purchase_price %}<div class="homec-property__price">₦{{
-                                listing.purchase_price|intcomma }}<span>/year</span></div>
-                            <span class="homec-property__salebadge">To Sale</span>
+                            {% if listing.selling_price %}
+                            <div class="homec-property__price">₦{{ listing.selling_price|intcomma }}</div>
+                            <span class="homec-property__salebadge" style="background-color:chartreuse;"> For Sale</span>
                             {% endif %}
-
+                        
                         </div>
                         <h3 class="homec-property__title"><a
                                 href="{% url 'Listing:property_listing_detail' pk=listing.pk %}">{{listing.property.name }}</a>
