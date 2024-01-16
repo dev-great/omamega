@@ -74,7 +74,7 @@
                 <ul class="nav-menu menu navigation list-none">
                     <li {% if request.path == '/' %} class="active" {% endif %}><a href="{% url 'core:index' %}">Home</a></li>
                     <li {% if request.path == '/abou/t' %} class="active" {% endif %}><a href="{% url 'core:about' %}">About Us</a></li>
-                    <li {% if request.path == '/estate_listing_list/' %} class="active" {% endif %}><a href="{% url 'Listing:estate_listing_list' %}">Our Estate</a> </li>
+                    <li {% if request.path == '/estate_listing_list/' %} class="active" {% endif %}><a href="{% url 'Listing:estate_listing_list' %}">Our Estates</a> </li>
                     <li {% if request.path == '/property_listing_list/' %} class="active" {% endif %}><a href="{% url 'Listing:property_listing_list' %}">Properties</a> </li>
                     <li {% if request.path == '/blog/' %} class="active" {% endif %}><a href="{% url 'Blog:post_list' %}">Blog</a> </li>
                     <li {% if request.path == '/contact/' %} class="active" {% endif %}><a href="{% url 'core:contact' %}">Contact</a></li>
@@ -186,7 +186,7 @@
                         <span class="homec-form__label">Are you a subscriber?</span>
                         <h3 class="homec-form__title">Monitor your payment status </h3>
                     </div>
-                    <a href="{% url 'Authorization:login' %}" class="homec-btn"><span>Sigin Now</span></a>
+                    <a href="{% url 'Authorization:login' %}" class="homec-btn"><span>Sign In</span></a>
                     
                 </div>
                 <!-- End Subscribe Form -->
