@@ -7,6 +7,7 @@ PROPERTY_TYPE_CHOICES = [
     ("Mansion", "Mansion"),
     ("Terrace", "Terrace"),
     ("Penthouse", "Penthouse"),
+    ("Land", "Land"),
 ]
 
 DOCUMENT_TYPE_CHOICES = [
