@@ -244,6 +244,9 @@
                                         <div class="homec-property__text">
                                             <img src="{% static 'img/location-icon2.svg' %}" alt="#">
                                             <p>{{ listing.property.address }}</p>
+                                            ||
+                                            <span class="homec-property__salebadge" style="background-color:black; color:white; 
+                                            	border-radius: 0px;">Type: {{listing.property.property_type }}</span>
                                         </div>
                                         <!-- Property List-->
                                         <ul class="homec-property__list homec-border-top list-none">
